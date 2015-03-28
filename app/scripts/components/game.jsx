@@ -3,6 +3,7 @@ import Reflux from 'reflux';
 import Tile from '../components/tile.jsx';
 import GameActions from '../actions/game_actions.js';
 import GameStore from '../stores/game_store.js';
+import _ from 'lodash';
 
 class Game extends React.Component {
   constructor(props) {
@@ -36,27 +37,13 @@ class Game extends React.Component {
 
   renderGrid() {
     var selection = this.state.selection;
-    var isSelected = function(column) {
-      var selected = false;
 
-      selection.forEach(function(selectedCard) {
-        if (selectedCard.color === column.color &&
-            selectedCard.amount === column.amount &&
-            selectedCard.fill === column.fill &&
-            selectedCard.shape === column.shape) {
-          selected = true;
-        }
-      });
-
-      return selected;
-    };
-
-    return this.state.grid.map(function(row) {
+    return this.state.grid.map(function(row, index) {
       return (
-        <div className="row">
+        <div className="row" key={index}>
           {row.map(function(column) {
             return (
-              <Tile {...column} selected={isSelected(column)} />
+              <Tile {...column} key={column.id} selected={_(selection).contains(column.id)} />
             );
           })}
         </div>

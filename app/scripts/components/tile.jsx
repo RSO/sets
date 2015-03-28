@@ -22,7 +22,7 @@ class Tile extends React.Component {
   }
 
   handleClick(event) {
-    GameActions.selectCard(this.props);
+    GameActions.selectCard(this.props.id);
   }
 
   render() {

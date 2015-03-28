@@ -29,6 +29,7 @@ var GameStore = Reflux.createStore({
         FILLS.map(function(fill) {
           AMOUNTS.map(function(amount) {
             deck.push({
+              id: color + '-' + shape + '-' + fill + '-' + amount,
               color: color,
               shape: shape,
               fill: fill,
@@ -46,8 +47,8 @@ var GameStore = Reflux.createStore({
     });
   },
 
-  onSelectCard(card) {
-    this.selection.push(card);
+  onSelectCard(cardId) {
+    this.selection.push(cardId);
 
     this.trigger({
       selection: this.selection
