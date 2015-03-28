@@ -41,8 +41,8 @@ class Shape extends React.Component {
       <div className="shape">
         <svg width="100%" height="100%" viewBox="0 0 150 300" className="shape__inner">
           <defs>
-            <pattern id="lined" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
-              <line x1="0" y1="6" stroke={this.props.color} strokeWidth="6" />
+            <pattern id="lined" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
+              <line x1="0" y1="12" stroke={this.props.color} strokeWidth="6" />
             </pattern>
           </defs>
 
