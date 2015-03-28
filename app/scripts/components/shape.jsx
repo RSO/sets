@@ -38,19 +38,17 @@ class Shape extends React.Component {
     var fill = this.getFillStringFor(this.props.fill, this.props.color);
 
     return (
-      <div className="shape">
-        <svg width="100%" height="100%" viewBox="0 0 150 300" className="shape__inner">
-          <defs>
-            <pattern id="lined" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
-              <line x1="0" y1="12" stroke={this.props.color} strokeWidth="6" />
-            </pattern>
-          </defs>
+      <svg viewBox="0 0 150 300" className="shape">
+        <defs>
+          <pattern id="lined" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
+            <line x1="0" y1="12" stroke={this.props.color} strokeWidth="6" />
+          </pattern>
+        </defs>
 
-          <g stroke={this.props.color} fill={fill} strokeWidth="6">
-            {this.renderShape()}
-          </g>
-        </svg>
-      </div>
+        <g stroke={this.props.color} fill={fill} strokeWidth="6">
+          {this.renderShape()}
+        </g>
+      </svg>
     );
   }
 };
