@@ -40,8 +40,8 @@ class Shape extends React.Component {
     return (
       <svg viewBox="0 0 150 300" className="shape">
         <defs>
-          <pattern id="lined" width="12" height="12" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
-            <line x1="0" y1="12" stroke={this.props.color} strokeWidth="6" />
+          <pattern id="lined" width="10" height="10" patternUnits="userSpaceOnUse">
+            <line x1="0" y1="0" x2="10" y2="0" stroke={this.props.color} strokeWidth="6" />
           </pattern>
         </defs>
 
