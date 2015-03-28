@@ -21,8 +21,10 @@ class Tile extends React.Component {
 
   render() {
     return (
-      <div className="tile" onClick={this.props.select()}>
-        {this.renderShapes()}
+      <div className="column">
+        <div className="tile" onClick={this.props.select()}>
+          {this.renderShapes()}
+        </div>
       </div>
     );
   }
