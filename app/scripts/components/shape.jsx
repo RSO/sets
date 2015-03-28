@@ -42,11 +42,11 @@ class Shape extends React.Component {
         <svg width="100%" height="100%" viewBox="0 0 150 300">
           <defs>
             <pattern id="lined" width="6" height="6" patternUnits="userSpaceOnUse" patternTransform="rotate(90)">
-              <line x1="0" y1="6" stroke={this.props.color} stroke-width="6" />
+              <line x1="0" y1="6" stroke={this.props.color} strokeWidth="6" />
             </pattern>
           </defs>
 
-          <g stroke={this.props.color} fill={fill} stroke-width="6">
+          <g stroke={this.props.color} fill={fill} strokeWidth="6">
             {this.renderShape()}
           </g>
         </svg>
