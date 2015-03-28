@@ -44,8 +44,10 @@ gulp.task('html', function() {
 // compile sass
 gulp.task('sass', function() {
   return gulp.src(app + 'sass/main.sass')
+    .pipe($.sourcemaps.init())
     .pipe($.sass({indentedSyntax: true}))
     .pipe($.autoprefixer({browsers: autoprefixerBrowsers}))
+    .pipe($.sourcemaps.write())
     .pipe(gulp.dest(dist + 'css/'))
     .pipe($.size({ title : 'css' }))
     .pipe($.connect.reload());
