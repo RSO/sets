@@ -90,9 +90,7 @@ class Game extends React.Component {
   render() {
     return (
       <div>
-        <div>
-          {this.renderGrid()}
-        </div>
+        {this.renderGrid()}
       </div>
     );
   }
