@@ -34,7 +34,7 @@ class Shape extends React.Component {
     var fill = this.getFillStringFor(this.props.fill, this.props.color);
 
     return (
-      <svg viewBox="0 0 150 300" className="shape" id="">
+      <svg viewBox="0 0 150 300" className="shape">
         <defs>
           <pattern id={'lined-' + this.props.color} width="10" height="10" patternUnits="userSpaceOnUse">
             <line x1="0" y1="0" x2="10" y2="0" stroke={this.props.color} strokeWidth="6" />
