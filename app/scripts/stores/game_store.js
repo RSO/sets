@@ -2,7 +2,7 @@ import Reflux from 'reflux';
 import GameActions from '../actions/game_actions';
 import shuffle from '../utils/shuffle.js';
 
-var COLORS = ['red', 'green', 'purple'];
+var COLORS = ['#EB4A3C', '#28C101', '#8169FA'];
 var SHAPES = ['diamond', 'squiggle', 'oval'];
 var FILLS = ['empty', 'filled', 'lined'];
 var AMOUNTS = [1, 2, 3];
