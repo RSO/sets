@@ -14,10 +14,9 @@ var GameStore = Reflux.createStore({
     this.sets = [];
     this.deck = [];
     this.grid = [
-      [null, null, null],
-      [null, null, null],
-      [null, null, null],
-      [null, null, null]
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null]
     ];
   },
 
