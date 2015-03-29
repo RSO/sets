@@ -5,10 +5,6 @@ class Shape extends React.Component {
     this.renderShape = this.renderShape.bind(this);
   }
 
-  componentWillReceiveProps(nextProps) {
-    console.info(this.props.color, nextProps.color);
-  }
-
   renderShape() {
     switch(this.props.shape) {
       case 'diamond':
