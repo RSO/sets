@@ -11,7 +11,7 @@ var GameStore = Reflux.createStore({
   listenables: [GameActions],
 
   init() {
-    this.selection = [];
+    this.sets = [];
     this.deck = [];
     this.grid = [
       [null, null, null],
@@ -33,7 +33,8 @@ var GameStore = Reflux.createStore({
               color: color,
               shape: shape,
               fill: fill,
-              amount: amount
+              amount: amount,
+              selected: false
             });
           });
         });
@@ -41,17 +42,22 @@ var GameStore = Reflux.createStore({
     });
 
     this.deck = shuffle(deck);
-
     this.trigger({
       deck: this.deck
     });
   },
 
-  onSelectCard(cardId) {
-    this.selection.push(cardId);
+  onSelectCard(x, y) {
+    var grid = this.grid;
+
+    grid[y][x].selected = !grid[y][x].selected;
+
+    this.grid = grid;
+
+    this.checkForSet();
 
     this.trigger({
-      selection: this.selection
+      grid: grid
     });
   },
 
@@ -72,6 +78,60 @@ var GameStore = Reflux.createStore({
       deck: this.deck,
       grid: this.grid
     });
+  },
+
+  checkForSet() {
+    var selectedCards = this.getSelectedCards();
+    var sets = this.sets;
+    var set = true;
+
+    if (selectedCards.length < 3)
+      return;
+
+    _.each(['amount', 'fill', 'color', 'shape'], function(attribute) {
+      var uniqueCount = _(selectedCards).pluck(attribute).uniq().value().length
+
+      if (uniqueCount === 2) {
+        set = false;
+      }
+    });
+
+    if (set) {
+      this.replaceSelectedCardsFromDeck();
+
+      sets.push(selectedCards);
+
+      this.sets = sets;
+
+      this.trigger({
+        sets: this.sets
+      });
+    }
+  },
+
+  replaceSelectedCardsFromDeck() {
+    var deck = this.deck;
+    var grid = this.grid;
+
+    _.each(this.grid, function(row, row_index) {
+      _.each(row, function(column, column_index) {
+        if (column.selected) {
+          grid[row_index][column_index] = deck.pop();
+        }
+      });
+    });
+
+    this.deck = deck;
+    this.grid = grid;
+
+    this.trigger({
+      deck: this.deck,
+      grid: this.grid
+    });
+  },
+
+  getSelectedCards() {
+    return _(this.grid).flatten(true).where({ selected: true }).value();
   },
 });
 
