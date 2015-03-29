@@ -11,6 +11,8 @@ class Game extends React.Component {
     super(props);
 
     this.state = {
+      sets: [],
+      deck: [],
       grid: [],
       selection: []
     };
@@ -55,7 +57,7 @@ class Game extends React.Component {
     return (
       <div>
         {this.renderGrid()}
-        <Sidebar />
+        <Sidebar deck={this.state.deck} sets={this.state.sets} />
       </div>
     );
   }
