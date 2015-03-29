@@ -3,9 +3,7 @@ import Game from '../components/game.jsx';
 
 class Home extends React.Component {
   render() {
-    return(
-      <Game />
-    );
+    return <Game />;
   }
 }
 
