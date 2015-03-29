@@ -8,17 +8,7 @@ var FILLS = ['empty', 'filled', 'lined'];
 var AMOUNTS = [1, 2, 3];
 
 var GameStore = Reflux.createStore({
-  listenables: [GameActions],
-
-  init() {
-    this.sets = [];
-    this.deck = [];
-    this.grid = [
-      [null, null, null, null],
-      [null, null, null, null],
-      [null, null, null, null]
-    ];
-  },
+  listenables: GameActions,
 
   onShuffleDeck() {
     var deck = [];
@@ -77,6 +67,22 @@ var GameStore = Reflux.createStore({
       deck: this.deck,
       grid: this.grid
     });
+  },
+
+  onClearGrid() {
+    this.sets = [];
+    this.deck = [];
+    this.grid = [
+      [null, null, null, null],
+      [null, null, null, null],
+      [null, null, null, null]
+    ];
+  },
+
+  onResetGame() {
+    GameActions.clearGrid();
+    GameActions.shuffleDeck();
+    GameActions.fillGrid();
   },
 
   checkForSet() {

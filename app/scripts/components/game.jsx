@@ -3,6 +3,7 @@ import Reflux from 'reflux';
 import Tile from '../components/tile.jsx';
 import GameActions from '../actions/game_actions.js';
 import GameStore from '../stores/game_store.js';
+import Sidebar from './sidebar.jsx';
 import _ from 'lodash';
 
 class Game extends React.Component {
@@ -18,6 +19,7 @@ class Game extends React.Component {
   }
 
   componentWillMount() {
+    GameActions.clearGrid();
     GameActions.shuffleDeck();
   }
 
@@ -53,6 +55,7 @@ class Game extends React.Component {
     return (
       <div>
         {this.renderGrid()}
+        <Sidebar />
       </div>
     );
   }

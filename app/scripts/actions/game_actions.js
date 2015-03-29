@@ -3,7 +3,9 @@ import Reflux from 'reflux';
 var GameActions = Reflux.createActions([
   'shuffleDeck',
   'fillGrid',
-  'selectCard'
+  'selectCard',
+  'resetGame',
+  'clearGrid'
 ]);
 
 export default GameActions;
