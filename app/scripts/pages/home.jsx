@@ -11,7 +11,7 @@ class Home extends React.Component {
 
   render() {
     return(
-      <div>
+      <div className="wrapper">
         <div className="header">
           <h1 className="heading">ThreeCards</h1>
           <a href="#" onClick={this.handleResetClick} className="button">

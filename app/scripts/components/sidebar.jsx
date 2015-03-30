@@ -27,18 +27,14 @@ class Sidebar extends React.Component {
   render() {
     return (
       <div className="sidebar">
-        <div className="sidebar-filler--top" />
-        <div className="sidebar-inner">
-          <div className="cards-count">
-            {this.props.deck.length} cards left in deck
-          </div>
-
-          <div className="sets-found">
-            Sets found: <br />
-            {this.renderSets()}
-          </div>
+        <div className="cards-count">
+          {this.props.deck.length} cards left in deck
         </div>
-        <div className="sidebar-filler--bottom" />
+
+        <div className="sets-found">
+          Sets found: <br />
+          {this.renderSets()}
+        </div>
       </div>
     );
   }
