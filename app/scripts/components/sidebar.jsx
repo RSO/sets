@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
   renderSets() {
     return this.props.sets.map(function(set) {
       return (
-        <div className="row">
+        <div className="set">
           {set.map(function(card) {
             return <Tile {...card} key={card.id} />;
           })}
