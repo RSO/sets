@@ -1,5 +1,4 @@
 import React from 'react';
-import GameActions from '../actions/game_actions.js';
 import Tile from './tile.jsx';
 
 class Sidebar extends React.Component {
@@ -30,8 +29,6 @@ class Sidebar extends React.Component {
       <div className="sidebar">
         <div className="sidebar-filler--top" />
         <div className="sidebar-inner">
-          <a onClick={this.handleResetClick} href="#">New game</a>
-
           <div>
             Cards left in deck: {this.props.deck.length}
           </div>
