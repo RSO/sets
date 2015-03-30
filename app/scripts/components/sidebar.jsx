@@ -14,7 +14,11 @@ class Sidebar extends React.Component {
       return (
         <div className="set">
           {set.map(function(card) {
-            return <Tile {...card} key={card.id} />;
+            return (
+              <div className="set-card">
+                <Tile {...card} key={card.id} />
+              </div>
+            );
           })}
         </div>
       )

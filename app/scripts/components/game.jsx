@@ -43,7 +43,7 @@ class Game extends React.Component {
     return this.state.grid.map(function(row, row_index) {
       return row.map(function(column, column_index) {
         return (
-          <div className="tile-outer">
+          <div className="board-item">
             <Tile {...column} key={column.id} x={column_index} y={row_index} />
           </div>
         );
