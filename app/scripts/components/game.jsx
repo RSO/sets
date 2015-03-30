@@ -41,27 +41,23 @@ class Game extends React.Component {
 
   renderGrid() {
     return this.state.grid.map(function(row, row_index) {
-      return (
-        <div className="row" key={row_index}>
-          {row.map(function(column, column_index) {
-            return (
-              <Tile {...column} key={column.id} x={column_index} y={row_index} />
-            );
-          })}
-        </div>
-      );
+      return row.map(function(column, column_index) {
+        return (
+          <Tile {...column} key={column.id} x={column_index} y={row_index} />
+        );
+      });
     });
   }
 
   render() {
     return (
-      <div>
-        <div className="content">
-            {this.renderGrid()}
+      <div className="game">
+        <div className="filler--left" />
+        <div className="board">
+          {this.renderGrid()}
         </div>
-        <div className="sidebar">
-          <Sidebar deck={this.state.deck} sets={this.state.sets} />
-        </div>
+        <Sidebar deck={this.state.deck} sets={this.state.sets} />
+        <div className="filler--right" />
       </div>
     );
   }

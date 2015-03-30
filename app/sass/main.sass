@@ -5,43 +5,70 @@ $grid-padding: 30px
 *
   box-sizing: border-box
 
-body
+html, body
   margin: 0
+  height: 100%
 
-.content
-  padding: $grid-padding
+.game
+  height: 100%
+  display: flex
+  flex-flow: row wrap
+  align-content: stretch
 
-.row
-  margin-left: -$grid-padding
-  margin-bottom: $grid-padding
+.board
+  width: 600px
+  height: 680px
+  align-self: center
 
-  &:last-child
-    margin-bottom: 0
+.filler--left
+  flex: 1
 
-  @include clearfix
+.filler--right
+  flex: 1
+  background: #f6f6f6
 
-.column
-  padding-left: $grid-padding
-  width: 25%
+.tile-outer
   float: left
+  width: 25%
+  height: (100% / 3)
+  padding: 10px
 
 .tile
+  display: flex
+  height: 100%
+  width: 100%
   padding: 20px 10px
-  text-align: center
   color: rgba(0, 0, 0, .2)
   border: 3px solid
   border-radius: 10px
+  overflow: hidden
+  cursor: pointer
 
 .tile--selected
   color: #AAD5F7
   background: rgba(#AAD5F7, 0.2)
 
+.shape-group
+  flex: 1
+  align-self: center
+
 .shape
-  padding-right: $grid-padding
-  width: 20%
-  overflow: visible
+  width: 100%
+  padding: 5px
 
 .sidebar
+  width: 250px
   background: #f6f6f6
   padding: $grid-padding
-  @include clearfix
+  display: flex
+  flex-flow: column wrap
+
+.sidebar-inner
+  height: 680px
+  padding: 20px 0
+
+.sidebar-filler--top
+  flex: 1
+
+.sidebar-filler--bottom
+  flex: 1

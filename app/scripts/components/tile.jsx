@@ -31,9 +31,11 @@ class Tile extends React.Component {
     });
 
     return (
-      <div className="column">
+      <div className="tile-outer">
         <div className={tileClasses} onClick={this.handleClick.bind(this)}>
-          {this.renderShapes()}
+          <div className="shape-group">
+            {this.renderShapes()}
+          </div>
         </div>
       </div>
     );
