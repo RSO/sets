@@ -96,7 +96,8 @@ var GameStore = Reflux.createStore({
     _.each(['amount', 'fill', 'color', 'shape'], function(attribute) {
       var uniqueCount = _(selectedCards).pluck(attribute).uniq().value().length
 
-      if (uniqueCount === 2) {
+      // Fix for Larsieboy hack
+      if (uniqueCount === 1 || uniqueCount === 3) {
         set = false;
       }
     });
