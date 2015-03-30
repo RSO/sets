@@ -56,8 +56,12 @@ class Game extends React.Component {
   render() {
     return (
       <div>
-        {this.renderGrid()}
-        <Sidebar deck={this.state.deck} sets={this.state.sets} />
+        <div className="content">
+            {this.renderGrid()}
+        </div>
+        <div className="sidebar">
+          <Sidebar deck={this.state.deck} sets={this.state.sets} />
+        </div>
       </div>
     );
   }
