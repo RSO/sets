@@ -12,7 +12,7 @@ class Sidebar extends React.Component {
   renderSets() {
     return this.props.sets.map(function(set) {
       return (
-        <div>
+        <div className="row">
           {set.map(function(card) {
             return <Tile {...card} key={card.id} />;
           })}
@@ -23,8 +23,8 @@ class Sidebar extends React.Component {
 
   render() {
     return (
-      <div className="game-sidebar">
-        <a onClick={this.handleResetClick} href="#">Reset</a>
+      <div>
+        <a onClick={this.handleResetClick} href="#">New game</a>
 
         <div>
           Cards left in deck: {this.props.deck.length}
